@@ -54,7 +54,7 @@ Step 3: Iniciar Airflow:
 
 Step 4: Criar DAG:
 
-    DAG-ETL_toll_data
+    DAG-ETL_toll_data.py
 
 Step 5: Submeter DAG:
 
