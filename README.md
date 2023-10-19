@@ -3,15 +3,15 @@
 Ambiente de produção
 
 Esse projeto foi desenvolvido com SN Labs em uma plataforma de IDE (Ambiente de Desenvolvimento Integrado) de código aberto executado em nuvem, que é um ambiente prático para laboratórios relacionados a projetos e fins acadêmicos, mas poderia ser rodado on-premise, para isso seria necessário fazer o deploy do Airflow, CLI, kafka/zookeeper, MySQL, de preferência rodando em contêiner Docker. Caso o projeto seja operado localmente pode haver algumas alteraçãoes em comandos e caminhos mas a síntese se mantém.
-.
-.
-.
+
+
+
 Cenário
 
 Uma empresa de consultoria em análise de dados precisa analisar os dados de tráfego rodoviário de diferentes praças de pedágio. Cada rodovia é operada por um operador de pedágio diferente, com uma configuração de TI diferente que utiliza diferentes formatos de arquivo. É necessário coletar os dados disponíveis em diferentes formatos e consolidá-los em um único arquivo. Como os dados dos veículos são capturados instantaneamente é necessário criar um pipeline de dados que coleta os dados em streaming e os carrega em um banco de dados.
-.
-.
-.
+
+
+
 Objetivo
 
 Construir um pipeline de dados executando as seguintes etapas:
@@ -42,9 +42,9 @@ A partir de um servidor de banco de dados MySQL:
 ● Criar uma tabela para armazenar os dados transformados;
 
 ● Personalizar o programa consumidor para escrever no banco de dados MySQL;
-.
-.
-.
+
+
+
 Hands-on:
 
 Step 1: Criar diretório centralizado conferir livre acesso:
