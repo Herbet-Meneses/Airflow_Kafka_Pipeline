@@ -19,20 +19,26 @@ Construir um pipeline de dados executando as seguintes etapas:
 Criar um DAG do Apache Airflow que irá:
 
 ● Carregar e descompactar os dados;
+
 ● Extrair dados de arquivos CSV/TSV/TXT;
+
 ● Transformar os dados;
+
 ● Carregar os dados transformados na área de preparação;
 
 Operar servidor Kafka para:
 
-● Criar tópico para gerenciar dados em streaming.
-● Personalizar programa gerador para transmitir para tópico kafka.
-● Baixar e personalizar um consumidor de dados em streaming.
+● Criar tópico para gerenciar dados em streaming;
+
+● Personalizar programa gerador para transmitir para tópico kafka;
+
+● Baixar e personalizar um consumidor de dados em streaming;
 
 A partir de um servidor de banco de dados MySQL:
 
 ● Criar uma tabela para armazenar os dados transformados;
-● Personalizar o programa consumidor para escrever no banco de dados MySQL.
+
+● Personalizar o programa consumidor para escrever no banco de dados MySQL;
 
 
 
