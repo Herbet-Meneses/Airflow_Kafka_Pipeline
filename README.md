@@ -5,9 +5,11 @@ Ambiente de produção
 Esse projeto foi desenvolvido com SN Labs em uma plataforma de IDE (Ambiente de Desenvolvimento Integrado) de código aberto executado em nuvem, que é um ambiente prático para laboratórios relacionados a projetos e fins acadêmicos, mas poderia ser rodado on-premise, para isso seria necessário fazer o deploy do Airflow, CLI, kafka/zookeeper, MySQL, de preferência rodando em contêiner Docker. Caso o projeto seja operado localmente pode haver algumas alteraçãoes em comandos e caminhos mas a síntese se mantém.
 
 
+
 Cenário
 
 Uma empresa de consultoria em análise de dados precisa analisar os dados de tráfego rodoviário de diferentes praças de pedágio. Cada rodovia é operada por um operador de pedágio diferente, com uma configuração de TI diferente que utiliza diferentes formatos de arquivo. É necessário coletar os dados disponíveis em diferentes formatos e consolidá-los em um único arquivo. Como os dados dos veículos são capturados instantaneamente é necessário criar um pipeline de dados que coleta os dados em streaming e os carrega em um banco de dados.
+
 
 
 Objetivo
@@ -31,6 +33,7 @@ A partir de um servidor de banco de dados MySQL:
 
     Criar uma tabela para armazenar os dados transformados;
     Personalizar o programa consumidor para escrever no banco de dados MySQL.
+
 
 
 Hands-on:
@@ -62,7 +65,7 @@ Step 6: Rodar DAG
 
 Step 7: Monitorar DAG
 
-    ![print dag running](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/27177e8d-a511-48d3-bbab-9eefec13d844)
+![print dag running](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/27177e8d-a511-48d3-bbab-9eefec13d844)
 
 Step 8: Baixar Kafka
 
@@ -120,10 +123,10 @@ Step 19: Criar Consumidor e gravador de dados
 
     #Código python para consumir as mensagens enviadas através do tópico kafka, transforma dados e carrega os dados em banco de dados.
     consumer.py
-    ![INSERT](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/01da9b26-6538-4080-95ae-798bb302c6a0)
+![INSERT](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/01da9b26-6538-4080-95ae-798bb302c6a0)
 
 Step 20: Consultar banco de dados
 
     select * from livetolldata limit 10;
-    ![Screenshot 2023-10-19 135746](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/b5059361-e891-4e6e-9161-ab8910ad7a5c)
+![Screenshot 2023-10-19 135746](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/b5059361-e891-4e6e-9161-ab8910ad7a5c)
 
