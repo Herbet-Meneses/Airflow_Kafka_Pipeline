@@ -38,94 +38,95 @@ A partir de um servidor de banco de dados MySQL:
 
 Hands-on:
 
-Step 1: Criar diretório centralizado conferir livre acesso
+Step 1: Criar diretório centralizado conferir livre acesso:
 
     sudo mkdir -p /home/project/airflow/dags/finalassignment/staging
     sudo chmod 777 /home/project/airflow/dags/finalassignment/staging
     cd /home/project/airflow/dags/finalassignment/staging
 
-Step 2: Descarregar dataset no diretório
-    wget -P /home/project/airflow/dags/finalassignment/staging "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz"
+Step 2: Descarregar dataset no diretório:
 
-Step 3: Iniciar Airflow
+    wget -P /home/project/airflow/dags/finalassignment/staging "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-        SkillsNetwork/labs/Final%20Assignment/tolldata.tgz"
+
+Step 3: Iniciar Airflow:
 
     start_airflow
 
-Step 4: Criar DAG
+Step 4: Criar DAG:
 
     DAG-ETL_toll_data
 
-Step 5: Submeter DAG
+Step 5: Submeter DAG:
 
     cp DAG-ETL_toll_data $AIRFLOW_HOME/dags
 
-Step 6: Rodar DAG
+Step 6: Rodar DAG:
 
     airflow dags unpause DAG-ETL_toll_data
 
-Step 7: Monitorar DAG
+Step 7: Monitorar DAG:
 
 ![print dag running](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/27177e8d-a511-48d3-bbab-9eefec13d844)
 
-Step 8: Baixar Kafka
+Step 8: Baixar Kafka:
 
     wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz
 
-Step 9: Extrair Kafka
+Step 9: Extrair Kafka:
 
     tar -xzf kafka_2.12-2.8.0.tgz
 
-Step 10: Iniciar MySQL
+Step 10: Iniciar MySQL:
 
     start_mysql
     mysql --host=127.0.0.1 --port=3306 --user=root --password=MTY4NTUtZmhtZW5l
 
-Step 11: Criar banco de dados 'tolldata' e tabela 'livetolldata'
+Step 11: Criar banco de dados 'tolldata' e tabela 'livetolldata':
 
     create database tolldata;
     use tolldata;
     create table livetolldata(Row_id int, Timestamp datetime, Anonymized_Vehicle_number int, Vehicle_type char(15), Number_of_axles int,         
     Tollplaza_id smallint, Tollplaza_code varchar(20), Type_of_Payment_code char(3), Vehicle_Code varchar(10));
 
-Step 12: Desconectar MySQL
+Step 12: Desconectar MySQL:
 
     exit
 
-Step 13: Instalar Módulo kafka-python
+Step 13: Instalar Módulo kafka-python:
 
     python3 -m pip install kafka-python
 
-Step 14: Instalar Módulo mysql-connector-python
+Step 14: Instalar Módulo mysql-connector-python:
 
     python3 -m pip install mysql-connector-python==8.0.31
 
-Step 15: Iniciar Zookpeear
+Step 15: Iniciar Zookpeear:
 
     cd kafka_2.12-2.8.0
     bin/zookeeper-server-start.sh config/zookeeper.properties
 
-Step 16: Iniciar Kafka
+Step 16: Iniciar Kafka:
 
     cd kafka_2.12-2.8.0
     bin/kafka-server-start.sh config/server.properties
 
-Step 17: Criar tópico Kafka
+Step 17: Criar tópico Kafka:
 
     cd kafka_2.12-2.8.0
     bin/kafka-topics.sh --create --topic toll --bootstrap-server localhost:9092
 
-Step 18: Criar Produtor Kafka
+Step 18: Criar Produtor Kafka:
 
     #Código python que lê os dados transformados pelo airflow em arquivo CSV e envia para o tópico Kafka através de mensagens.
     produtor.py
 
-Step 19: Criar Consumidor e gravador de dados
+Step 19: Criar Consumidor e gravador de dados:
 
     #Código python para consumir as mensagens enviadas através do tópico kafka, transforma dados e carrega os dados em banco de dados.
     consumer.py
 ![INSERT](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/01da9b26-6538-4080-95ae-798bb302c6a0)
 
-Step 20: Consultar banco de dados
+Step 20: Consultar banco de dados:
 
     select * from livetolldata limit 10;
 ![Screenshot 2023-10-19 135746](https://github.com/Herbet-Meneses/Airflow_Kafka_Pipeline/assets/142064420/b5059361-e891-4e6e-9161-ab8910ad7a5c)
