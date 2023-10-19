@@ -6,15 +6,18 @@ Esse projeto foi desenvolvido com SN Labs em uma plataforma de IDE (Ambiente de 
 
 
 
+
 Cenário
 
 Uma empresa de consultoria em análise de dados precisa analisar os dados de tráfego rodoviário de diferentes praças de pedágio. Cada rodovia é operada por um operador de pedágio diferente, com uma configuração de TI diferente que utiliza diferentes formatos de arquivo. É necessário coletar os dados disponíveis em diferentes formatos e consolidá-los em um único arquivo. Como os dados dos veículos são capturados instantaneamente é necessário criar um pipeline de dados que coleta os dados em streaming e os carrega em um banco de dados.
 
 
 
+
 Objetivo
 
 Construir um pipeline de dados executando as seguintes etapas:
+
 
 Criar um DAG do Apache Airflow que irá:
 
@@ -26,6 +29,7 @@ Criar um DAG do Apache Airflow que irá:
 
 ● Carregar os dados transformados na área de preparação;
 
+
 Operar servidor Kafka para:
 
 ● Criar tópico para gerenciar dados em streaming;
@@ -33,6 +37,7 @@ Operar servidor Kafka para:
 ● Personalizar programa gerador para transmitir para tópico kafka;
 
 ● Baixar e personalizar um consumidor de dados em streaming;
+
 
 A partir de um servidor de banco de dados MySQL:
 
